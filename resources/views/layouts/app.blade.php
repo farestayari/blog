@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -64,6 +65,10 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+                                    <li>
+                                        <a href="{{route('settings')}}">Settings</a>
+                                    </li>
                                 </ul>
                             </li>
                         @endguest
@@ -94,6 +99,11 @@
                             <a href="{{route('users.create')}}">New user</a>
                     </li>
                   @endif
+
+                    <li class="list-group-item">
+                            <a href="{{route('user.profile')}}">My profile</a>
+                    </li>
+
                     <li class="list-group-item">
                         <a href="{{route('tags.create')}}">Create Tag</a>
                     </li>
@@ -131,6 +141,8 @@
             toastr.info("{{ Session::get('info') }}")
         @endif
     </script>
+
+    @yield('scripts')
 
 </body>
 </html>
