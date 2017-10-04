@@ -20,9 +20,24 @@ Route::get('/', [
     'as'=>'index'
 ]);
 
-Route::get('/{slug}', [
+Route::get('/post/{slug}', [
     'uses'=>'FrontEndController@singlePost',
     'as'=>'post.single'
+]);
+
+Route::get('/category/{id}',[
+    'uses'=>'FrontEndController@category',
+    'as'=>'category.single'
+]);
+
+Route::get('/tag/{id}',[
+    'uses'=>'FrontEndController@tag',
+    'as'=>'tag.single'
+]);
+
+Route::get('/result',[
+    'uses'=>'FrontEndController@search',
+    'as'=>'result'
 ]);
 
 Auth::routes();
